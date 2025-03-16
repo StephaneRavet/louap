@@ -23,7 +23,7 @@ alwaysApply: true
 #### Fichiers
 - **Code source**: `kebab-case.extension` (ex: `resume-builder.ts`)
 - **Composants React/Vue**: `PascalCase.tsx` (ex: `ResumeForm.tsx`)
-- **Tests**: `[filename].{spec|test}.extension` (ex: `resume-service.spec.ts`)
+- **Tests**: `[filename].{spec|test}.extension` (ex: `resume-service.test.ts`)
 - **Fichiers de déclaration de type**: `kebab-case.d.ts` (ex: `resume-types.d.ts`)
 - **Fichiers de configuration**: `kebab-case.config.ts` (ex: `tailwind.config.ts`)
 - **Fichiers de constantes/données**: `SCREAMING_SNAKE_CASE.ts` (ex: `DEFAULT_RESUME_TEMPLATE.ts`)
@@ -105,7 +105,7 @@ alwaysApply: true
 // Bon nommage de fichier
 resume-service.ts
 ResumeForm.vue
-resume-repository.spec.ts 
+resume-repository.test.ts 
 TEMPLATE_CONSTANTS.ts
 
 // Bon nommage de variable

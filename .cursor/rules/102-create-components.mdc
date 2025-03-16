@@ -1,6 +1,7 @@
 ---
 description: Guide pour créer des composants React dans notre projet
 globs: *.tsx
+alwaysApply: false
 ---
 
 # Création de composants React

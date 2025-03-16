@@ -13,7 +13,7 @@ alwaysApply: true
 
 ## Principes généraux
 - Écrire du code TypeScript concis et technique en utilisant des modèles de programmation fonctionnelle et déclarative
-- Éviter les classes; préférer l'itération et la modularisation à la duplication de code
+- Éviter les classes, préférer la programmation fonctionnelle.
 - Utiliser des noms de variables descriptifs avec des verbes auxiliaires (ex: `isLoading`, `hasError`)
 - Structurer les fichiers en: composant exporté, sous-composants, helpers, contenu statique et types
 

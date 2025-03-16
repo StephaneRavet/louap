@@ -1,6 +1,7 @@
 ---
 description: Comment écrire des requêtes PostgreSQL
 globs: *.sql
+alwaysApply: false
 ---
 
 ## Contexte
