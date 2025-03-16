@@ -1,0 +1,16 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+Présentation de l’application : Maître du Jeu pour je jeu du Loup
+Mon projet est une application web conçue pour faciliter le rôle de Maître du Jeu dans les parties du jeu du Loup. L'objectif est de rendre l'animation du jeu accessible même à un débutant, en automatisant la gestion des rôles et des événements du jeu.
+
+Fonctionnalités principales
+🔹 Création de parties : Ajout des joueurs et attribution des rôles avec leurs descriptions.
+🔹 Gestion des nuits : Automatisation des actions de chaque rôle pendant la nuit.
+🔹 Votes et éliminations : Suivi des décisions des villageois et gestion des résultats.
+🔹 Animations et interactions : Aide le Maître du Jeu à suivre les étapes et à animer la partie.
+🔹 Accessibilité : Une interface intuitive pour qu’un novice puisse facilement organiser et animer une partie.
+
+Cette application vise à fluidifier le jeu, éviter les oublis et rendre l'expérience plus immersive pour tous les participants.
