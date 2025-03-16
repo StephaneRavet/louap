@@ -1,0 +1,71 @@
+---
+description: EXPLIQUER comment créer et utiliser les fichiers de routage dans NextJS
+globs: *.tsx
+---
+
+## Contexte
+
+* NextJS est un framework qui gère le routage.
+* Voici exactement comment créer et gérer les routes dans notre application.
+* Nous pouvons uniquement gérer les routes dans le répertoire `app`
+
+## `page.tsx`
+
+Le modèle pour la page se trouve dans @npag.code-snippets et définit une page. Vous pouvez également utiliser [npagl.code-snippets](mdc:.vscode/npagl.code-snippets) pour avoir une mise en page par défaut. Voici comment fonctionne une page :
+
+* `/app/users/page.tsx` sera routé vers `/users`
+
+Les paramètres sont ASYNC et vous devez utiliser [next.ts](mdc:src/types/next.ts) pour utiliser les paramètres avec PageParams.
+
+Exemple :
+
+```tsx
+import type { PageParams } from "@/types/next";
+
+// Vous devez toujours utiliser PageParams
+export default async function RoutePage(props: PageParams<{ userId: string }>) {
+  // Vous devez attendre searchParams
+  const searchParams = await props.searchParams;
+  const page = searchParams.page;
+
+  // Vous devez attendre params
+  const params = await props.params;
+  const userId = params.userId;
+
+  return // ...
+}
+
+```
+
+## `layout.tsx`
+
+Le modèle pour la mise en page se trouve dans [nlay.code-snippets](mdc:.vscode/nlay.code-snippets) et définit la mise en page qui sera appliquée à chaque enfant d'une route.
+
+* `/app/users/layout.tsx` prendra un enfant et chaque route aura la mise en page appliquée, exemple :
+
+* `/users/1`
+* `/users`
+* `/users/dashboard/test`
+
+Les paramètres sont ASYNC et vous devez utiliser [next.ts](mdc:src/types/next.ts) pour utiliser les paramètres avec LayoutParams.
+
+## `error.tsx`
+
+Le modèle se trouve dans [nerr.code-snippets](mdc:.vscode/nerr.code-snippets) et définit la page d'erreur. Lorsqu'une route enfant rencontre une erreur, l'`error` sera affiché. C'est l'erreur la plus proche dans l'arborescence qui sera affichée. C'est une bonne pratique d'ajouter toujours une erreur.
+
+* `/app/users/error.tsx` affichera une erreur pour chaque route qui n'a pas d'erreur plus proche, enfants de `/users`
+
+## `loading.tsx`
+
+Le modèle se trouve dans [nloa.code-snippets](mdc:.vscode/nloa.code-snippets) et définit la page de chargement.
+
+Lorsqu'un enfant est un [server-components.mdc](mdc:.cursor/rules/server-components.mdc) et attend, la page `loading.tsx` sera affichée.
+
+* `/app/users/loading.tsx` affichera un chargeur pour chaque route qui n'a pas de chargement plus proche, enfants de `/users`
+
+
+
+
+
+
+

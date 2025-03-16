@@ -1,0 +1,7 @@
+---
+description: APPLIQUER l'utilisation de Tailwind CSS
+globs: *.tsx, *.css, *.scss
+---
+
+1. Éviter `space-y-n` et utiliser `flex gap-n` avec `flex-col` si nécessaire
+2. Éviter `bg-white bg-opacity-50` et utiliser `bg-white/50`

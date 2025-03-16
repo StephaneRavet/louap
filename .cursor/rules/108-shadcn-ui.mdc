@@ -1,0 +1,14 @@
+---
+description: Comment utiliser Shadcn/UI pour ajouter des styles à nos applications
+globs: *.tsx, *.ts
+---
+
+## Contexte
+
+* Nous utilisons Shadcn/UI pour styliser notre application.
+
+## Règles
+
+- Vous devez utiliser Shadcn UI pour les composants.
+- Vous devez utiliser Tailwind CSS pour le style.
+- Vous devez installer tout composant Shadcn UI manquant avec `pnpm dlx shadcn@2.1.8 add <component-name />`

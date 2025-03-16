@@ -1,0 +1,41 @@
+---
+description: Guide pour créer des composants React dans notre projet
+globs: *.tsx
+---
+
+# Création de composants React
+
+## Contexte
+* La création de composants doit TOUJOURS suivre ces règles
+* Ces conventions assurent la cohérence et la maintenabilité du code
+
+## Règles
+- Toujours utiliser `export function` sans "default"
+- Toujours utiliser un objet "props" comme premier argument du composant, et ajouter le type directement dans l'objet
+
+## Exemples
+
+### Avec 2 props ou moins
+```tsx
+export function MyComponent(props: { prop1: string; prop2: number }) {
+  return <div>{props.prop1}</div>;
+}
+```
+
+### Avec plus de 2 props
+```tsx
+type MyComponentProps = { 
+  prop1: string; 
+  prop2: number;
+  prop3: number;
+}
+
+export function MyComponent(props: MyComponentProps) {
+  return <div>{props.prop1}</div>;
+}
+```
+
+## Bonnes pratiques supplémentaires
+- Utiliser des noms de composants explicites en PascalCase
+- Regrouper les props connexes dans des objets lorsque cela a du sens
+- Documenter les props complexes avec des commentaires 

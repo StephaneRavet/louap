@@ -1,0 +1,54 @@
+---
+description: Créer et comprendre les Server Components dans NextJS 15
+globs: *.tsx
+---
+
+# Server Components dans NextJS 15
+
+## Contexte
+* Depuis React 19 et NextJS 13, les Server Components peuvent être utilisés
+* Les Server Components permettent d'effectuer des requêtes backend directement dans nos composants
+* Les Server Components ne s'exécutent JAMAIS côté client
+
+## Utilisation
+Utilisez React 19 avec les Server Components. Implémentez des requêtes Prisma et de la logique backend directement dans les fichiers `page` ou `layout` comme ceci :
+
+```tsx
+// Utilisez "async" pour les server components
+export default async function Page() {
+  // Utilisez "await" pour les opérations asynchrones
+  const result = await prisma.user.findMany();
+  return (
+    <div>
+      {result.map((user) => (
+        <p key={user.id}>{user.name}</p>
+      ))}
+    </div>
+  );
+}
+```
+
+Vous pouvez également implémenter cette logique dans tout composant qui est `async`. Un Server Component peut effectuer des opérations backend comme :
+
+* Requêtes Prisma
+* Lecture/écriture de fichiers (fs)
+* Analytics
+* Intégrations tierces
+
+Certaines méthodes sont disponibles :
+
+```tsx
+import { redirect } from 'next/navigation'
+import { notFound } from 'next/navigation'
+
+// Rediriger vers une autre page
+redirect('/login');
+
+// Afficher le fichier `not-found.tsx`
+notFound()
+```
+
+## Règles pour les Server Components
+1. Les Server Components sont toujours `async`
+2. Les Server Components ne peuvent pas utiliser de hooks
+3. Les Server Components ne peuvent pas utiliser `document` ou `window` car ils s'exécutent uniquement côté serveur 

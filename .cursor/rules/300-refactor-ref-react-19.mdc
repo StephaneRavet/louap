@@ -1,0 +1,56 @@
+---
+description: Guide pour refactoriser les composants utilisant forwardRef dans React 19
+globs: *.tsx
+---
+
+# Refactorisation des Refs dans React 19
+
+## Contexte
+* React 19 a introduit une simplification majeure pour l'utilisation des refs
+* `forwardRef` n'est plus nécessaire pour utiliser `ref` dans les composants React
+* Nous pouvons maintenant simplement passer la prop `ref` directement :
+
+```tsx
+const MyButton = ({ ref, ...props }: ComponentProps<"button">) => {
+  return <button ref={ref} {...props} />;
+};
+```
+
+## Objectif
+Refactoriser les composants **qui utilisaient `forwardRef`** pour utiliser la nouvelle approche avec les props `ref`.
+
+## Avant / Après
+
+### AVANT
+```tsx
+type SomeCustomProps = {
+  color: "red" | "blue";
+} & ComponentPropsWithoutRef<"div">;
+
+export const MyCustomComponent = forwardRef<HTMLDivElement, SomeCustomProps>(
+  ({ color, ...props }, ref) => {
+    return <div ref={ref} {...props} />;
+  },
+);
+```
+
+### APRÈS
+```tsx
+type SomeCustomProps = {
+  color: "red" | "blue";
+} & ComponentProps<"div">;
+
+export const MyCustomComponent = ({
+  color,
+  ref,
+  ...props
+}: SomeCustomProps) => {
+  return <div ref={ref} {...props} />;
+};
+```
+
+## Étapes de refactorisation
+1. Remplacer `ComponentPropsWithoutRef<T>` par `ComponentProps<T>`
+2. Supprimer l'appel à `forwardRef`
+3. Ajouter `ref` comme prop destructurée dans les paramètres du composant
+4. Vérifier que tous les composants qui utilisent ce composant fonctionnent correctement 

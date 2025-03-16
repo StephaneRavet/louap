@@ -1,0 +1,38 @@
+---
+description: Utiliser les Streaming Components pour charger les pages plus rapidement
+globs: *.tsx
+---
+
+# Streaming Components
+
+## Contexte
+* Le streaming permet de décomposer le HTML de la page en petits morceaux et d'envoyer progressivement ces morceaux du serveur au client
+* Cela permet d'afficher certaines parties de la page plus rapidement, sans attendre que toutes les données soient chargées
+* Le streaming fonctionne bien avec le modèle de composants de React car chaque composant peut être considéré comme un morceau. Les composants prioritaires (ex: informations produit) ou qui ne dépendent pas de données peuvent être envoyés en premier (ex: layout), et React peut commencer l'hydratation plus tôt. Les composants moins prioritaires (ex: avis, produits connexes) peuvent être envoyés dans la même requête serveur après que leurs données aient été récupérées
+
+## Exemple avec Suspense
+`<Suspense>` fonctionne en enveloppant un composant qui effectue une action asynchrone (ex: récupération de données), en affichant une UI de secours (ex: skeleton, spinner) pendant ce temps, puis en remplaçant par votre composant une fois l'action terminée.
+
+```tsx
+import { Suspense } from 'react'
+import { PostFeed, Weather } from './Components'
+ 
+export default function Posts() {
+  return (
+    <section>
+      <Suspense fallback={<p>Chargement du flux...</p>}>
+        <PostFeed />
+      </Suspense>
+      <Suspense fallback={<p>Chargement de la météo...</p>}>
+        <Weather />
+      </Suspense>
+    </section>
+  )
+}
+```
+
+* `PostFeed` est un Server Component qui récupère des données
+* `Weather` est un Server Component qui récupère des données
+
+## Bonnes pratiques
+Vous pouvez utiliser le composant `Skeleton` de Shadcn/UI dans le `fallback` pour avoir une meilleure expérience utilisateur dans l'application. 

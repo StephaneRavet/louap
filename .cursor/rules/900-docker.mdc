@@ -1,0 +1,8 @@
+---
+description: Docker
+globs: docker*,Docker*
+alwaysApply: false
+---
+* Tout de qui concerne docker prod est dans le dossier /docker
+* Tout de qui concerne docker dev est dans le dossier /.devcontainer
+* N'ajoute jamais de "version" dans les fichiers docker-compose.yml

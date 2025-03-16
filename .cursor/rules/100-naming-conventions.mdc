@@ -1,0 +1,179 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+## Contexte
+- Appliquez ces conventions de nommage à tous les éléments de code, y compris les fichiers, dossiers, fonctions, classes, interfaces, types, enums, etc.
+- Ces conventions assurent la cohérence du code, améliorent la lisibilité et réduisent la charge cognitive
+- Suivez ces directives pour tout nouveau code et lors de la refactorisation du code existant
+
+## Exigences
+
+### 1. Principes généraux
+- Les noms doivent être descriptifs et révéler l'intention
+- Les noms doivent être facilement recherchables et pas trop courts
+- Évitez les abréviations sauf pour celles largement acceptées (ex: `id`, `http`, `url`)
+- Évitez les mots redondants ou sans signification (ex: `data`, `info`)
+- Longueur maximale du nom: 50 caractères
+- Maintenez des modèles de casse cohérents comme définis ci-dessous
+
+### 2. Nommage des fichiers et dossiers
+
+#### Fichiers
+- **Code source**: `kebab-case.extension` (ex: `resume-builder.ts`)
+- **Composants React/Vue**: `PascalCase.tsx` (ex: `ResumeForm.tsx`)
+- **Tests**: `[filename].{spec|test}.extension` (ex: `resume-service.spec.ts`)
+- **Fichiers de déclaration de type**: `kebab-case.d.ts` (ex: `resume-types.d.ts`)
+- **Fichiers de configuration**: `kebab-case.config.ts` (ex: `tailwind.config.ts`)
+- **Fichiers de constantes/données**: `SCREAMING_SNAKE_CASE.ts` (ex: `DEFAULT_RESUME_TEMPLATE.ts`)
+- **Fichiers d'action serveur**: `kebab-case.action.ts` (ex: `user.action.ts`)
+- **Fichiers de store Zustand**: `kebab-case.store.ts` (ex: `user.store.ts`)
+- **Fichiers de schéma Zod**: `kebab-case.schema.ts` (ex: `user.schema.ts`)
+
+
+#### Dossiers
+- **Dossiers à usage général**: `kebab-case` (ex: `error-handling`)
+- **Dossiers de domaine/fonctionnalité**: `kebab-case` (ex: `resume-builder`)
+- **Couches d'architecture propre**: `kebab-case` (ex: `domain`, `application`, `infrastructure`, `presentation`)
+- **Collections de composants**: `kebab-case` (ex: `ui-components`)
+
+### 3. Éléments JavaScript/TypeScript
+
+#### Variables
+- **Variables régulières**: `camelCase` (ex: `userProfile`)
+- **Variables de classe privées**: `_camelCase` (ex: `_userData`)
+- **Variables booléennes**: `isPrefixed` ou `hasPrefixed` (ex: `isValid`, `hasErrors`)
+
+#### Constantes
+- **Constantes au niveau du module**: `SCREAMING_SNAKE_CASE` (ex: `MAX_FILE_SIZE`)
+- **Constantes de classe**: `SCREAMING_SNAKE_CASE` (ex: `static readonly MAX_ENTRIES = 50`)
+- **Constantes d'énumération**: `SCREAMING_SNAKE_CASE` (ex: `ERROR_TYPES.VALIDATION`)
+
+#### Fonctions et méthodes
+- **Fonctions/méthodes régulières**: `camelCase` (ex: `calculateTotal()`)
+- **Méthodes de classe privées**: `_camelCase` (ex: `_validateInput()`)
+- **Fonctions retournant un booléen**: `isPrefixed` ou `hasPrefixed` (ex: `isValidEmail()`)
+- **Fonctions factory**: `createPrefixed` (ex: `createUserProfile()`)
+- **Gestionnaires d'événements**: `handlePrefixed` (ex: `handleSubmit()`)
+
+#### Classes
+- **Noms de classe**: `PascalCase` (ex: `ResumeBuilder`)
+- **Classes abstraites**: `AbstractPascalCase` (ex: `AbstractRepository`)
+- **Classes de service**: `PascalCaseService` (ex: `ValidationService`)
+- **Classes de dépôt**: `PascalCaseRepository` (ex: `ResumeRepository`)
+- **Classes de contrôleur**: `PascalCaseController` (ex: `ResumeController`)
+
+#### Interfaces et types
+- **Interfaces**: `PascalCaseInterface` (ex: `ResumeDataInterface`)
+- **Alias de type**: `PascalCaseType` (ex: `ResumeTemplateType` ou `TResumeTemplateType`)
+- **Paramètres de type/génériques**: Lettre majuscule unique ou `PascalCaseType` (ex: `T` ou `EntityType`)
+- **Types de props**: `PascalCaseProps` (ex: `ResumeFormProps`)
+
+#### Enums
+- **Noms d'enum**: `PascalCaseEnum` (ex: `ValidationResultEnum`)
+- **Membres d'enum**: `SCREAMING_SNAKE_CASE` (ex: `ValidationResult.INVALID_EMAIL`)
+
+#### Spécifique à React/Vue
+- **Noms de composants**: `PascalCase` (ex: `ResumeForm`)
+- **Hooks personnalisés**: `useCamelCase` (ex: `useFormValidation`)
+- **Fournisseurs de contexte**: `PascalCaseProvider` (ex: `ResumeProvider`)
+- **Composants d'ordre supérieur**: `withPascalCase` (ex: `withAuthentication`)
+
+### Schéma Zod
+- **Nom du schéma**: `PascaleCaseSchema` (ex: `NameSchema`)
+
+### 4. CSS et styling
+
+- **Classes personnalisées Tailwind**: `kebab-case` (ex: `@apply bg-primary text-white;`)
+
+### 5. Spécifique au backend
+
+- **Points de terminaison API**: `kebab-case` (ex: `/api/resume-templates`)
+- **Variables d'environnement**: `SCREAMING_SNAKE_CASE` (ex: `DATABASE_URL`)
+
+### 6. Spécifique aux tests
+
+- **Suites de tests**: `describe('PascalCase', ...)` (ex: `describe('ResumeService', ...)`)
+- **Cas de test**: `it('devrait faire quelque chose', ...)` ou `test('devrait faire quelque chose', ...)`
+- **Fixtures de test**: `camelCaseMock` ou `mockPascalCase` (ex: `resumeDataMock`)
+- **Helpers de test**: `camelCaseHelper` (ex: `createTestUser`)
+
+## Exemples
+
+<example>
+// Bon nommage de fichier
+resume-service.ts
+ResumeForm.vue
+resume-repository.spec.ts 
+TEMPLATE_CONSTANTS.ts
+
+// Bon nommage de variable
+const userData = fetchUserData();
+const isValid = validateEmail(email);
+const MAX_FILE_SIZE = 5 * 1024 * 1024;
+
+// Bon nommage de fonction
+function calculateTotalExperience(workHistory) {...}
+function isEmailValid(email) {...}
+function handleSubmit() {...}
+
+// Bon nommage de classe
+class ResumeBuilder {...}
+class LocalStorageResumeRepository implements IResumeRepository {...}
+class ValidationService {...}
+
+// Bon nommage d'interface et de type
+interface IResumeData {...}
+type ResumeTemplate = {...}
+type TEntityId<T> = {...}
+
+// Bon nommage d'enum
+enum ValidationResult {
+  VALID,
+  INVALID_EMAIL,
+  MISSING_REQUIRED_FIELD
+}
+
+// Bon nommage de composant
+const ProfileSection = () => {...}
+const useFormValidation = () => {...}
+</example>
+
+<example type="invalid">
+// Mauvais nommage de fichier
+resume_service.ts  // Utilise snake_case au lieu de kebab-case
+resumeForm.vue     // Utilise camelCase au lieu de PascalCase pour le composant
+ResumeRepo.test.ts // Nommage de test incohérent
+
+// Mauvais nommage de variable
+const data = fetch();     // Trop vague
+const r = calculateTax(); // Trop court et sans signification
+const valid = check();    // Les booléens devraient utiliser le préfixe is/has
+
+// Mauvais nommage de fonction
+function validate() {...}           // Trop vague
+function process_data() {...}       // Utilise snake_case
+function returnTrueIfUserExists() {...} // Trop verbeux
+
+// Mauvais nommage de classe
+class resume_builder {...}     // Utilise snake_case
+class validationservices {...} // Pas correctement capitalisé
+class Repository_Local {...}   // Casse incohérente
+
+// Mauvais nommage d'interface et de type
+interface resumeData {...}     // Devrait être IPascalCase
+type data = {...}              // Trop vague et pas en PascalCase
+type tEntity = {...}           // Casse incohérente
+
+// Mauvais nommage d'enum
+enum validationResults {
+  valid,           // Devrait être en SCREAMING_SNAKE_CASE
+  invalid_email,   // Devrait être en SCREAMING_SNAKE_CASE
+  MissingField     // Casse incohérente
+}
+
+// Mauvais nommage de composant
+const profilesection = () => {...}  // Devrait être en PascalCase
+const FormValidation = () => {...}  // Les hooks personnalisés devraient utiliser le préfixe use
+</example> 

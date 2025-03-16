@@ -1,0 +1,38 @@
+---
+description: Comprendre et utiliser les Client Components dans React 19
+globs: *.tsx, *.ts
+---
+
+# Client Components dans React 19
+
+## Contexte
+* Depuis React 19 et NextJS 13, nous utilisons les Client Components
+* Ce projet utilise à la fois les Client Components et les Server Components
+* Les Client Components permettent d'écrire des éléments UI interactifs qui sont pré-rendus sur le serveur et peuvent utiliser JavaScript côté client pour s'exécuter dans le navigateur
+
+## Pourquoi utiliser les Client Components ?
+1. **Interactivité** : Les Client Components peuvent utiliser state, effects et event listeners, ce qui leur permet de fournir un retour immédiat à l'utilisateur et de mettre à jour l'UI dynamiquement
+2. **APIs du navigateur** : Les Client Components ont accès aux APIs du navigateur, comme la géolocalisation ou localStorage, permettant des fonctionnalités plus riches
+
+## Exemple
+```tsx
+'use client';
+
+import { useState } from 'react';
+
+export function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Vous avez cliqué {count} fois</p>
+      <button onClick={() => setCount(count + 1)}>Cliquez-moi</button>
+    </div>
+  );
+}
+```
+
+## Règles
+1. Les Client Components doivent commencer par la directive `'use client'`
+2. Les Client Components peuvent utiliser `useState` et autres hooks React
+3. Les Client Components sont pré-rendus sur le serveur, ce qui signifie qu'ils peuvent créer des erreurs d'hydratation. Vous devez éviter ces erreurs en utilisant des hooks comme `useIsClient` ou en vérifiant `typeof window !== 'undefined'` lors de l'utilisation des APIs du navigateur 

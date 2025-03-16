@@ -1,0 +1,125 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Standards pour [README.md](mdc:README.md)
+
+## Contexte
+- Lors de la création ou de la mise à jour de la documentation du projet
+- Lors de l'ajout de nouvelles fonctionnalités ou dépendances
+- Lors de la modification de la structure du projet
+- Lors de la mise à jour des instructions d'installation ou d'utilisation
+
+## Exigences
+
+### Structure principale
+- Titre et description
+  - Nom du projet
+  - Description claire et concise de l'objectif
+  - Badges d'état (build, couverture, version)
+
+- Table des matières
+  - Générée automatiquement pour les README de plus de 2 écrans
+  - Structure hiérarchique avec liens cliquables
+
+- Aperçu du projet
+  - Énoncé du problème
+  - Aperçu de la solution
+  - Fonctionnalités clés
+  - Technologies utilisées avec versions
+  - Diagramme d'architecture (si applicable)
+
+- Démarrage rapide
+  - Prérequis
+  - Étapes d'installation
+  - Configuration de l'environnement
+  - Configuration
+
+- Utilisation
+  - Exemples de base
+  - Cas d'utilisation courants
+  - Documentation de l'API (si applicable)
+  - Captures d'écran/GIFs pour les fonctionnalités d'interface utilisateur
+
+- Développement
+  - Instructions de configuration
+  - Procédures de test
+  - Directives de contribution
+  - Guide de style de code
+  - Conventions de nommage des branches
+
+- Structure du projet
+  - Disposition des répertoires
+  - Fichiers clés et leurs objectifs
+  - Aperçu de l'architecture
+
+- Déploiement
+  - Instructions de build
+  - Procédures de déploiement
+  - Variables d'environnement
+  - Exigences d'infrastructure
+
+- Maintenance
+  - Procédures de mise à jour
+  - Guide de dépannage
+  - Problèmes connus
+  - FAQ
+
+### Formatage
+- Utiliser une syntaxe Markdown appropriée
+- Inclure la coloration syntaxique pour les blocs de code
+- Garder la longueur des lignes sous 120 caractères
+- Utiliser des liens relatifs pour les références internes
+- Inclure du texte alternatif pour les images
+
+### Mises à jour
+- Maintenir les numéros de version à jour
+- Mettre à jour la documentation avec chaque fonctionnalité
+- Maintenir un journal des modifications
+- Réviser et mettre à jour trimestriellement
+
+## Exemples
+
+<example>
+# Générateur de CV
+@![État de la build](mdc:https:/travis-ci.org/user/cv-generator)
+@![État de la couverture](mdc:https:/coveralls.io/github/user/cv-generator?branch=master)
+@![Version](mdc:https:/www.npmjs.com/package/cv-generator)
+
+Générateur de CV moderne prenant en charge le format JSON Resume avec aperçu en temps réel.
+
+## Fonctionnalités
+- Support du format JSON Resume
+- Aperçu en temps réel
+- Thèmes multiples
+- Exportation PDF
+- Design responsive
+
+## Démarrage rapide
+```bash
+pnpm install
+pnpm dev
+```
+
+@Voir la documentation complète
+</example>
+
+<example type="invalid">
+appli générateur de cv
+
+installation:
+npm install
+npm start
+
+fait par john
+</example>
+
+## Notes critiques
+<critical>
+- NE JAMAIS commettre d'informations sensibles (clés API, identifiants)
+- TOUJOURS mettre à jour les numéros de version lors des modifications
+- S'ASSURER que toutes les commandes et procédures sont testées avant de les documenter
+- MAINTENIR la synchronisation entre le code et la documentation
+</critical>

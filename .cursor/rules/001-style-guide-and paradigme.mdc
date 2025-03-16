@@ -1,0 +1,47 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Styles et conventions de code
+
+## Contexte
+* Ces conventions définissent notre approche de développement
+* Elles assurent la cohérence et la maintenabilité du code
+* Elles s'appliquent à tous les fichiers du projet
+
+## Principes généraux
+- Écrire du code TypeScript concis et technique en utilisant des modèles de programmation fonctionnelle et déclarative
+- Éviter les classes; préférer l'itération et la modularisation à la duplication de code
+- Utiliser des noms de variables descriptifs avec des verbes auxiliaires (ex: `isLoading`, `hasError`)
+- Structurer les fichiers en: composant exporté, sous-composants, helpers, contenu statique et types
+
+## Syntaxe et formatage
+- Éviter les accolades inutiles dans les conditionnels; utiliser une syntaxe concise pour les instructions simples
+- Écrire du JSX déclaratif
+
+## Utilisation de TypeScript
+- Utiliser TypeScript pour tout le code; préférer les types aux interfaces
+- Éviter les enums; utiliser des maps à la place
+- Utiliser des composants fonctionnels avec des types TypeScript
+
+## UI et styling
+- Utiliser Shadcn UI, Radix et Tailwind pour les composants et le styling
+- Implémenter un design responsive avec Tailwind CSS en utilisant une approche mobile-first
+
+## Optimisation des performances
+- Minimiser `use client`, `useEffect` et `setState`; privilégier les React Server Components (RSC)
+- Envelopper les composants client dans `Suspense` avec fallback
+- Utiliser le chargement dynamique pour les composants non critiques
+- Optimiser les images: utiliser le format WebP, inclure les données de taille et implémenter le lazy loading
+
+## Requêtes de base de données et création de modèles de données
+- Utiliser Prisma SDK pour interroger la base de données
+- Pour les modèles de données, lire les fichiers `.prisma`
+
+## Conventions clés
+- Utiliser 'nuqs' pour la gestion des paramètres de recherche d'URL
+- Optimiser les Web Vitals (LCP, CLS, FID)
+- Limiter 'use client': Favoriser les composants serveur et Next.js SSR pour la récupération de données ou la gestion d'état
+- Utiliser 'use client' uniquement pour l'accès aux API Web dans de petits composants 
